@@ -1,12 +1,14 @@
 sudo: required
 
-language: bash
+language: ruby
 
 service:
   - docker
 
 before install:
-  - docker build -t mrzeznic/simplewabapp Dockerfile
+  - docker build -t mrzeznic/simplewabapp .
+  - docker ps -a
+  - docker run -p 8080:8080 mrzeznic/simplewebapp run
 
 script:
-  - docker run -p 8080:8080 mrzeznic/simplewebapp run
+  - bundle exec rake test
