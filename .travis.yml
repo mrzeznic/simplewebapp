@@ -1,5 +1,7 @@
 sudo: required
 
+language: bash
+
 service:
   - docker
 
@@ -7,4 +9,4 @@ before install:
   - docker build -t mrzeznic/simplewabapp Dockerfile
 
 script:
-  - docker run -p 8080:8080 mrzeznic/simplewabappnpm run
+  - docker run -p 8080:8080 mrzeznic/simplewebapp run
